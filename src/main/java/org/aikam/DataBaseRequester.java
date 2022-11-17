@@ -1,5 +1,6 @@
 package org.aikam;
 
+import java.io.*;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -7,9 +8,7 @@ import java.util.*;
 
 public class DataBaseRequester {
 
-    private static final String URL = "jdbc:postgresql://localhost:5432/testDB";
-    private static final String USER = "postgres";
-    private static final String PASS = "0000";
+private static final String CONFIG = "source/configbd.conf";
     private String error = null;
 
     public String getError() {
@@ -90,11 +89,20 @@ public class DataBaseRequester {
         resultRequest.set(resultRequest.size() - 1, str.substring(0, str.length() - pos));
     }
 
-    public List<String> requestSearch(List<CriteriaJson> criteriaJson) {
+    private String[] getInfoFromConnectToBD() throws IOException {
+        Reader fileReader = new FileReader(CONFIG);
+        BufferedReader reader = new BufferedReader(fileReader);
+        String[] data = reader.readLine().split(" ");
+        reader.close();
+        fileReader.close();
+        return data;
+    }
 
+    public List<String> requestSearch(List<CriteriaJson> criteriaJson) throws IOException {
+        String[] data = getInfoFromConnectToBD();
         List<String> resultRequest = new ArrayList<>();
         resultRequest.add("{\n \"type\": \"search\",\n \"result\": [\n");
-        try (Connection conn = DriverManager.getConnection(URL, USER, PASS)) {
+        try (Connection conn = DriverManager.getConnection(data[0], data[1], data[2])) {
             Class.forName("org.postgresql.Driver");
             Statement stat = conn.createStatement();
             for (CriteriaJson tmp : criteriaJson) {
@@ -190,9 +198,10 @@ public class DataBaseRequester {
         resultRequest.add(String.valueOf(buffer));
     }
 
-    public List<String> requestStat(List<String> dateList) {
+    public List<String> requestStat(List<String> dateList) throws IOException {
+        String[] data = getInfoFromConnectToBD();
         List<String> resultRequest = new ArrayList<>();
-        try (Connection conn = DriverManager.getConnection(URL, USER, PASS)) {
+        try (Connection conn = DriverManager.getConnection(data[0], data[1], data[2])) {
             Class.forName("org.postgresql.Driver");
             Statement stat = conn.createStatement();
             requestHelperStat(dateList, stat, resultRequest);

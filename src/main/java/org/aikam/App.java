@@ -12,8 +12,9 @@ public class App
             error = "Invalid input parameters in command line arguments";
         }
         if (error != null) {
-            ParserJson er = new ParserJson("src/main/java/org/aikam/err.json");
+            ParserJson er = new ParserJson("err.json");
             er.writerError(error);
         }
+
     }
 }

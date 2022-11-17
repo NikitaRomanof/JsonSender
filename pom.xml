@@ -19,7 +19,7 @@
   </build>
   <packaging>jar</packaging>
 
-  <name>aikamsoft</name>
+  <name>App</name>
   <url>http://maven.apache.org</url>
 
   <properties>
