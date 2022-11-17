@@ -1,0 +1,56 @@
+{
+ "type": "stat",
+ "totalDays":2,
+ "customers": [
+   {
+    "name": "Петров Антон",
+    "purchases": [
+      {
+       "name": "Минеральная вода",
+       "expenses": 25
+      }
+     ],
+     "totalExpenses":25
+   },
+   {
+    "name": "Иванов Иван",
+    "purchases": [
+      {
+       "name": "Минеральная вода",
+       "expenses": 25
+      },
+      {
+       "name": "Хлеб",
+       "expenses": 30
+      },
+      {
+       "name": "Молоко",
+       "expenses": 65
+      }
+     ],
+     "totalExpenses":120
+   },
+   {
+    "name": "Гусев Ян",
+    "purchases": [
+      {
+       "name": "Колбаса варёная",
+       "expenses": 210
+      }
+     ],
+     "totalExpenses":210
+   },
+   {
+    "name": "Усов Данил",
+    "purchases": [
+      {
+       "name": "Масло",
+       "expenses": 360
+      }
+     ],
+     "totalExpenses":360
+   }
+ ],
+ "totalExpenses": 715,
+ "avgExpenses": 178.75
+}

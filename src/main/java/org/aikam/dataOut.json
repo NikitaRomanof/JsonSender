@@ -1,0 +1,46 @@
+{
+ "type": "search",
+ "result": [
+   {
+      "criteria": {"lastName": "Иванов"},
+      "results": [
+      {"lastName": "Иванов", "firstName": "Иван"}, 
+      {"lastName": "Иванов", "firstName": "Сергей"}
+    ]
+   },
+   {
+      "criteria": {"lastName": "Усов"},
+      "results": [
+      {"lastName": "Усов", "firstName": "Данил"}
+    ]
+   },
+   {
+      "criteria" :{"productName": "Минеральная вода","minTimes": 1},
+      "results": [
+      {"lastName": "Иванов", "firstName": "Иван"}, 
+      {"lastName": "Петров", "firstName": "Антон"}
+    ]
+   },
+   {
+      "criteria": {"minExpenses": 30,"maxExpenses": 1000},
+      "results": [
+      {"lastName": "Гусев", "firstName": "Ян"}, 
+      {"lastName": "Иванов", "firstName": "Иван"}, 
+      {"lastName": "Усов", "firstName": "Данил"}
+    ]
+   },
+   {
+      "criteria": {"lastName": "Гусев"},
+      "results": [
+      {"lastName": "Гусев", "firstName": "Ян"}
+    ]
+   },
+   {
+      "criteria": {"badCustomers":2},
+      "results": [
+      {"lastName": "Петров", "firstName": "Антон"}, 
+      {"lastName": "Иванов", "firstName": "Иван"}
+    ]
+   }
+ ]
+}
