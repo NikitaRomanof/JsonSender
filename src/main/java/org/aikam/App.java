@@ -15,6 +15,5 @@ public class App
             ParserJson er = new ParserJson("err.json");
             er.writerError(error);
         }
-
     }
 }
